@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: velha-app
+spec:
+  selector:
+    matchLabels:
+      app: velha-app
+  replicas: 2 # diz ao deployment para executar 2 pods que correspondam ao modelo
+  template:
+    metadata:
+      labels:
+        app: velha-app
+    spec:
+      containers:
+      - name: velha-app
+        image: digoweb/velha:1.0
+        ports:
+        - containerPort: 80
